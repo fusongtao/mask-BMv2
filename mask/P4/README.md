@@ -4,15 +4,15 @@
 ### Compiling and running P4 code
 2.Open a new terminal in directory "/P4/tutorials/exercises/mask/P4", compile the P4 code using "make" in this terminal.And run two terminal with the command "xterm h1 h2"
 3.Open five new terminal in directory "/P4/tutorials/exercises/mask/P4/switch" and run the follow command line as:
-## s1 controller
+# s1 controller
 ./run_controller.py -a 127.0.0.1:50051 -n s1 -d 0
-## s2 controller
+# s2 controller
 ./run_controller.py -a 127.0.0.1:50052 -n s2 -d 1
-## s3 controller
+# s3 controller
 ./run_controller.py -a 127.0.0.1:50053 -n s3 -d 2
-## s4 controller
+# s4 controller
 ./run_controller.py -a 127.0.0.1:50054 -n s4 -d 3
-## s5 controller
+# s5 controller
 ./run_controller.py -a 127.0.0.1:50055 -n s5 -d 4
 
 ### Usage
