@@ -1,0 +1,113 @@
+tables {
+  preamble {
+    id: 33589357
+    name: "MyIngress.ipv6_lpm"
+    alias: "ipv6_lpm"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv6.dstIP"
+    bitwidth: 128
+    match_type: LPM
+  }
+  action_refs {
+    id: 16798987
+  }
+  action_refs {
+    id: 16805608
+  }
+  action_refs {
+    id: 16800567
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33616267
+    name: "MyIngress.comparelabel"
+    alias: "comparelabel"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.maskh.label"
+    bitwidth: 32
+    match_type: EXACT
+  }
+  action_refs {
+    id: 16797798
+  }
+  action_refs {
+    id: 16805608
+  }
+  action_refs {
+    id: 16800567
+  }
+  size: 1024
+}
+actions {
+  preamble {
+    id: 16800567
+    name: "NoAction"
+    alias: "NoAction"
+  }
+}
+actions {
+  preamble {
+    id: 16805608
+    name: "MyIngress.drop"
+    alias: "drop"
+  }
+}
+actions {
+  preamble {
+    id: 16835169
+    name: "MyIngress.send_to_controller"
+    alias: "send_to_controller"
+  }
+}
+actions {
+  preamble {
+    id: 16802689
+    name: "MyIngress.reply"
+    alias: "reply"
+  }
+}
+actions {
+  preamble {
+    id: 16798987
+    name: "MyIngress.ipv6_forward"
+    alias: "ipv6_forward"
+  }
+  params {
+    id: 1
+    name: "dstAddr"
+    bitwidth: 48
+  }
+  params {
+    id: 2
+    name: "port"
+    bitwidth: 9
+  }
+}
+actions {
+  preamble {
+    id: 16797798
+    name: "MyIngress.writetc"
+    alias: "writetc"
+  }
+  params {
+    id: 1
+    name: "rkey"
+    bitwidth: 128
+  }
+  params {
+    id: 2
+    name: "last_label"
+    bitwidth: 32
+  }
+  params {
+    id: 3
+    name: "next_label"
+    bitwidth: 32
+  }
+}
